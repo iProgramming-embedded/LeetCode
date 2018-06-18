@@ -2,3 +2,12 @@
 2，链表遍历，增删查改
 3，双向链表
 4，鱼数笔记操作系统数据结构
+
+1，
+#include<stdio.h>
+typedef struct node{
+  int data;
+  struct node *pNext;
+}node;
+
+
