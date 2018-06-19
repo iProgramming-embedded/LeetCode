@@ -9,5 +9,30 @@ typedef struct node{
   int data;
   struct node *pNext;
 }node;
+node *create_node(int data)
+{
+  node *p = (node *)malloc(sizeof(node));
+  if(p == NULL){
+    printf("malloc error!\n");
+    return NULL;
+  }
+}
+void insert_tail(node * ph,node * new)
+{
+  node *p = ph;
+  while(NULL != p->pNext){
+    p = p->pNext;
+  };
+  p->pNext = new;
+}
+int main()
+{
+  node * ph =create_tail(1);
+  insert_tail(ph,create_tail(2));
+  insert_tail(ph,create_tail(3));
+  printf("node1 data:%d\n",ph->data);
+  printf("dode2 data:%d\n",ph->pNext->data);
+  printf("node3 data:%d\n",ph->pNext->pNext->data);
+}
 
 
