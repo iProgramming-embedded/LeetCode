@@ -35,4 +35,22 @@ int main()
   printf("node3 data:%d\n",ph->pNext->pNext->data);
 }
 
+void list_for_each1(ndoe *ph)
+{
+  node * p =ph;
+  while(NULL != p->pNext){
+    printf("node data:%d\n",p->data);
+    p=p->pNext;
+  }
+  printf("node data:%d\n",p->data);
+}
 
+void list_for_each2(node *ph)
+{
+  node * p = ph;
+  while(NULL != p ){
+    p = p -> pNext;
+    printf("node data:%d\n",p->data);
+  }
+  
+}
