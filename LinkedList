@@ -34,7 +34,7 @@ int main()
   printf("dode2 data:%d\n",ph->pNext->data);
   printf("node3 data:%d\n",ph->pNext->pNext->data);
 }
-
+//无头节点
 void list_for_each1(ndoe *ph)
 {
   node * p =ph;
@@ -44,7 +44,7 @@ void list_for_each1(ndoe *ph)
   }
   printf("node data:%d\n",p->data);
 }
-
+//有头节点
 void list_for_each2(node *ph)
 {
   node * p = ph;
