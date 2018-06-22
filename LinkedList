@@ -51,6 +51,7 @@ void list_for_each2(node *ph)
   while(NULL != p ){
     p = p -> pNext;
     printf("node data:%d\n",p->data);
-  }
-  
+  } 
 }
+//增删查改
+void 
