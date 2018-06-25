@@ -54,4 +54,25 @@ void list_for_each2(node *ph)
   } 
 }
 //增删查改
-void 
+void delete_node（node *pH, int data）
+｛
+  node *p = pH;
+  node *pPrev = NULL;
+  while(NULL != p->pNext){
+    pPrev = p;
+    p = p->pNext;
+    if (p->data == data){
+      if(NULL == p->pNext){
+        pPrev->pNext = NULL;
+        free(p);
+      }
+      else{
+        pPrev->pNext = p->pNext;
+        free(p);
+      }
+      return 0;
+    }
+  }
+  printf("没有要删除的节点\n");
+  return -1；
+｝
