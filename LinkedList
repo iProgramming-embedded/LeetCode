@@ -76,3 +76,18 @@ void delete_node（node *pH, int data）
   printf("没有要删除的节点\n");
   return -1；
 ｝
+//双向链表
+typedef struct node{
+  int data;
+  struct node *pNext;
+  struct node *pPrev;
+}node;
+node * create_node(int data)
+{
+  node * p = (node *)malloc(sizeof(node));
+  if(NULL == p){
+    printf("malloc error\n");
+    return NULL;
+  }
+  
+}
