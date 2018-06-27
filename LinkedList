@@ -89,5 +89,15 @@ node * create_node(int data)
     printf("malloc error\n");
     return NULL;
   }
-  
+     p->data = data;
+    p->pPrev = NULL;
+    p->pNext = NULL;
+    
+    return p;
 }
+void insert_tail(node * pH, node * new)
+{
+    
+}
+
+
