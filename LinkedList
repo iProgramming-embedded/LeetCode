@@ -97,7 +97,23 @@ node * create_node(int data)
 }
 void insert_tail(node * pH, node * new)
 {
+    struct node *p = pH;
+    while(NULL != p->pNext){
+      p = p->pNext;
+    }
     
+    p->pNext = new;
+    new->pPrev = p;
 }
-
+void insert_head(node * pH, node * new)
+{
+  new->pNext = pH->pNext;
+  
+  if(NULL != pH->pNext)
+    pH->pNext->pPrev = new;
+    
+  pH->pNext = new;
+  
+  new->pPrev = pH;
+}
 
