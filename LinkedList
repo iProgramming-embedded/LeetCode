@@ -117,7 +117,7 @@ void insert_head(node * pH, node * new)
   new->pPrev = pH;
 }
 双向链表的删除与实际应用
-
+链表的实际应用
 
 struct list_head{
   struct list_head *next,*prev;
