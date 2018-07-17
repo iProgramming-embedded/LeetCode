@@ -116,6 +116,50 @@ void insert_head(node * pH, node * new)
   
   new->pPrev = pH;
 }
+//正向遍历
+struct node * list_for_each(node * pH)
+{
+  node * p = pH;
+  if(NULL == p){
+    return NUll;
+  }
+  while(NULL != p->pNext){
+    p = p->pNext;
+    printf("data = %d.\n",p->data);
+  }
+  return p;
+}
+//逆向遍历
+#inlcude<stdio.h>
+#include<stdlib.h>
+typedef struct node{
+  int data;
+  node * pPrev;
+  node * pNext;
+}node;
+node * list_for_each(node * pH);
+void list_for_reverse(node * pTail)
+{
+  node * p = pTail;
+  
+  while(NULL != p->pPrev){
+    printf("data = %d.\n",p->data);
+    p = p->pPrev;
+  }
+}
+int main()
+{
+  node * pHeader = create_node(0);
+  insert_tail(pHeader,create_node(0));
+  insert_tail(pHeader,create_node(1));
+  insert_tail(pHeader,create_node(2));
+  
+  printf("正向遍历：\n");
+  node * pTail = list_for_each(pHeader);
+  printf("逆向遍历：\n");
+  list_for_reverse(pTail);
+  return 0;
+}
 双向链表的删除与实际应用
 链表的实际应用
 
