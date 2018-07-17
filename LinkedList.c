@@ -160,6 +160,31 @@ int main()
   list_for_reverse(pTail);
   return 0;
 }
+//删除节点
+int delete_node(node * pH, int data)
+{
+  node * p = pH;
+  
+  if(NULL == p)
+    return -1;
+  
+  while(NULL != p->pNext){
+    p = p->pNext;
+    if(p->data = data){
+      if(NULL == p->pNext){
+        p->pPrev->pNext = NULL;
+      }
+      else{
+        p->pPrev->pNext = p->pNext;
+        p->pNext->pPrev = p->pPrev;
+      }
+      free(p);
+      return 0;
+    }
+  }
+  printf("未找到要删除的节点.\n");
+  return -1;
+}
 双向链表的删除与实际应用
 链表的实际应用
 
