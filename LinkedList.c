@@ -116,15 +116,84 @@ void insert_head(node * pH, node * new)
   
   new->pPrev = pH;
 }
+//正向遍历
+struct node * list_for_each(node * pH)
+{
+  node * p = pH;
+  if(NULL == p){
+    return NUll;
+  }
+  while(NULL != p->pNext){
+    p = p->pNext;
+    printf("data = %d.\n",p->data);
+  }
+  return p;
+}
+//逆向遍历
+#inlcude<stdio.h>
+#include<stdlib.h>
+typedef struct node{
+  int data;
+  node * pPrev;
+  node * pNext;
+}node;
+node * list_for_each(node * pH);
+void list_for_reverse(node * pTail)
+{
+  node * p = pTail;
+  
+  while(NULL != p->pPrev){
+    printf("data = %d.\n",p->data);
+    p = p->pPrev;
+  }
+}
+int main()
+{
+  node * pHeader = create_node(0);
+  insert_tail(pHeader,create_node(0));
+  insert_tail(pHeader,create_node(1));
+  insert_tail(pHeader,create_node(2));
+  
+  printf("正向遍历：\n");
+  node * pTail = list_for_each(pHeader);
+  printf("逆向遍历：\n");
+  list_for_reverse(pTail);
+  return 0;
+}
+//删除节点
+int delete_node(node * pH, int data)
+{
+  node * p = pH;
+  
+  if(NULL == p)
+    return -1;
+  
+  while(NULL != p->pNext){
+    p = p->pNext;
+    if(p->data = data){
+      if(NULL == p->pNext){
+        p->pPrev->pNext = NULL;
+      }
+      else{
+        p->pPrev->pNext = p->pNext;
+        p->pNext->pPrev = p->pPrev;
+      }
+      free(p);
+      return 0;
+    }
+  }
+  printf("未找到要删除的节点.\n");
+  return -1;
+}
 双向链表的删除与实际应用
 链表的实际应用
 
 struct list_head{
   struct list_head *next,*prev;
 }
-#define LIST_HEAD(name){&(name),&(name)}
+#define LIST_HEAD_INIT(name) {&(name),&(name)}
 #define LIST_HEAD(name) struct list_head name = LIST_HEAD_INIT(name)
-static inline void INIT_LIST_HEAD(struct list_head *list){
+static inline void INIT_LIST_HEAD(struct list_head *list){  //inline内联函数，解决频繁调用的小函数大量消耗栈空间（栈内存）的问题，使用时函数体和函数声明必须结合在一起。
   list->next = list;
   list->prev = list;
 }//define的使用
