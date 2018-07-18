@@ -191,9 +191,9 @@ int delete_node(node * pH, int data)
 struct list_head{
   struct list_head *next,*prev;
 }
-#define LIST_HEAD(name){&(name),&(name)}
+#define LIST_HEAD_INIT(name) {&(name),&(name)}
 #define LIST_HEAD(name) struct list_head name = LIST_HEAD_INIT(name)
-static inline void INIT_LIST_HEAD(struct list_head *list){
+static inline void INIT_LIST_HEAD(struct list_head *list){  //inline内联函数，解决频繁调用的小函数大量消耗栈空间（栈内存）的问题，使用时函数体和函数声明必须结合在一起。
   list->next = list;
   list->prev = list;
 }//define的使用
