@@ -24,11 +24,12 @@
 int removeElement(int *nums, int numsSize, int val){
 	int i,j;
 	while(i < numsSize){
-		if(nums[size] == val){
+		if(nums[i] == val){
 			numsSize--;
 			nums[i] = nums[numsSize];
 		}else{
 			i++;
 		}
 	}
+	return numsSize;
 }
